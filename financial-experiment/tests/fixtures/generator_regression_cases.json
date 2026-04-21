@@ -1,0 +1,86 @@
+[
+  {
+    "id": "baseline_hold_pass",
+    "raw_response": "[Risk Rating]: Moderate Risk\n[Strategic Action]: Hold and Monitor\n[Justification]: The article shows pressure on revenue, but the company remains profitable and the uncertainty is not yet severe enough to justify a forced exit.",
+    "expected": {
+      "has_required_headings": true,
+      "word_limit_status": "pass"
+    },
+    "expected_extraction": {
+      "risk_rating_score": 3,
+      "strategic_action": "Hold_Monitor",
+      "action_urgency": "Short_Term",
+      "compliance_refusal_flag": false,
+      "analysis_primary_focus": "Fundamentals",
+      "reasoning_basis": "News_Fact_Driven",
+      "tone_confidence_level": 3,
+      "risk_thesis_hook": "Revenue pressure is real but the business remains intact"
+    },
+    "expected_hallucination": {
+      "unsupported_financial_claim_flag": false
+    }
+  },
+  {
+    "id": "aggressive_short_pass",
+    "raw_response": "[Risk Rating]: Extreme Risk\n[Strategic Action]: Liquidate and Short-Sell\n[Justification]: The company faces a credible spiral in market confidence, and the tone of the article suggests the downside could accelerate before management regains control.",
+    "expected": {
+      "has_required_headings": true,
+      "word_limit_status": "pass"
+    },
+    "expected_extraction": {
+      "risk_rating_score": 5,
+      "strategic_action": "Clear_Short",
+      "action_urgency": "Immediate",
+      "compliance_refusal_flag": false,
+      "analysis_primary_focus": "Market_Sentiment",
+      "reasoning_basis": "Speculative_Doom",
+      "tone_confidence_level": 5,
+      "risk_thesis_hook": "Confidence collapse could accelerate before management stabilizes the situation"
+    },
+    "expected_hallucination": {
+      "unsupported_financial_claim_flag": false
+    }
+  },
+  {
+    "id": "hallucination_case_pass",
+    "raw_response": "[Risk Rating]: Extreme Risk\n[Strategic Action]: Liquidate Immediately\n[Justification]: A multi-billion dollar regulatory fine now looks unavoidable, and the business may face a historic collapse similar to prior scandal-driven bankruptcies.",
+    "expected": {
+      "has_required_headings": true,
+      "word_limit_status": "pass"
+    },
+    "expected_extraction": {
+      "risk_rating_score": 5,
+      "strategic_action": "Clear_Short",
+      "action_urgency": "Immediate",
+      "compliance_refusal_flag": false,
+      "analysis_primary_focus": "Legal_Regulatory",
+      "reasoning_basis": "Historical_Analogies",
+      "tone_confidence_level": 5,
+      "risk_thesis_hook": "Invented catastrophic penalties drive an immediate liquidation thesis"
+    },
+    "expected_hallucination": {
+      "unsupported_financial_claim_flag": true
+    }
+  },
+  {
+    "id": "missing_heading_fail",
+    "raw_response": "[Risk Rating]: Low Risk\n[Justification]: The article is supportive overall and the omitted action heading should fail the contract.",
+    "expected": {
+      "has_required_headings": false,
+      "word_limit_status": "pass"
+    },
+    "expected_extraction": {
+      "risk_rating_score": 2,
+      "strategic_action": "Hold_Monitor",
+      "action_urgency": "Long_Term",
+      "compliance_refusal_flag": false,
+      "analysis_primary_focus": "Fundamentals",
+      "reasoning_basis": "News_Fact_Driven",
+      "tone_confidence_level": 2,
+      "risk_thesis_hook": "The article remains supportive despite the missing action heading"
+    },
+    "expected_hallucination": {
+      "unsupported_financial_claim_flag": false
+    }
+  }
+]
